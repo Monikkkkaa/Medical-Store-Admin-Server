@@ -12,13 +12,13 @@ const getAllMedicines = async (req, res) => {
       query = createSearchQuery(search, ['name', 'manufacturer']);
     }
     if (lowStock === 'true') {
-      query.isLowStock = true;
+      query.quantity = { $lt: 10 };
     }
 
     const medicines = await Medicine.find(query)
       .skip(skip)
       .limit(pageLimit)
-      .sort({ createdAt: -1 });
+      .sort({ quantity: 1, createdAt: -1 });
 
     const total = await Medicine.countDocuments(query);
     const pagination = getPaginationData(total, page, limit);

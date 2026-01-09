@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 10
+    },
+    "auditLog": "D:\\task\\Medical-Store-Admin-Panel\\server\\logs\\error\\.d1741e087761eeef76171c3073ce67176ffe093f-audit.json",
+    "files": [
+        {
+            "date": 1767946650991,
+            "name": "D:\\task\\Medical-Store-Admin-Panel\\server\\logs\\error\\error-2026-01-09.log",
+            "hash": "4b89ed1ae2bc8779b7ab25af9c0a9e013379f2eff2d165bbbb6a19343a6457e9"
+        }
+    ],
+    "hashType": "sha256"
+}

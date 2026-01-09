@@ -37,7 +37,7 @@ const getOrderById = async (req, res) => {
   try {
     const order = await Order.findById(req.params.id)
       .populate('user', 'name email phone address')
-      .populate('items.medicine', 'name price');
+      .populate('items.medicine', 'name price image manufacturer description');
 
     if (!order) {
       return res.status(404).json({ message: 'Order not found' });
@@ -77,7 +77,7 @@ const getDashboardStats = async (req, res) => {
     const totalUsers = await User.countDocuments();
     const totalMedicines = await Medicine.countDocuments();
     const totalOrders = await Order.countDocuments();
-    const lowStockMedicines = await Medicine.countDocuments({ isLowStock: true });
+    const lowStockMedicines = await Medicine.countDocuments({ quantity: { $lt: 10 } });
 
     const recentOrders = await Order.find()
       .populate('user', 'name')

@@ -1,0 +1,27 @@
+{
+  "name": "medical-store-server-tests",
+  "version": "1.0.0",
+  "description": "Test suite for Medical Store Admin Panel Server",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:verbose": "jest --verbose"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": ["<rootDir>/**/*.test.js"],
+    "collectCoverageFrom": [
+      "../src/**/*.js",
+      "!../src/server.js",
+      "!../src/app.js"
+    ],
+    "coverageDirectory": "coverage",
+    "coverageReporters": ["text", "lcov", "html"]
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "mongodb-memory-server": "^9.1.1"
+  }
+}

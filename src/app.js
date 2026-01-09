@@ -15,8 +15,13 @@ const reviewRoutes = require('./routes/review.routes');
 const publicMedicineRoutes = require('./routes/publicMedicine.routes');
 
 const errorHandler = require('./middlewares/error.middleware');
+const loggingMiddleware = require('./middleware/logging.middleware');
+const { logSuccess, logError } = require('./utils/logger');
 
 const app = express();
+
+// Logging middleware (before other middlewares)
+app.use(loggingMiddleware);
 
 // Middleware
 app.use(cors());
@@ -25,6 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Static files
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use(express.static(path.join(__dirname, 'uploads')));
 
 // Admin Routes
 app.use('/api/auth', authRoutes);
