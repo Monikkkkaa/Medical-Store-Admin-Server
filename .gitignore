@@ -10,5 +10,3 @@ yarn-error.log*
 .DS_Store
 .vscode/
 *.log
-src/uploads/medicines/*
-!src/uploads/medicines/.gitkeep
